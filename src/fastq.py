@@ -28,3 +28,16 @@ class Fastq:
             raise ValueError('Number of lines is not multiple by 4')
 
         return seqs
+
+    def count_bps(self) -> int:
+        """ counts number of nucleotides in file """
+        line_number = 0
+        count = 0
+
+        with open(self.path) as f:
+            for line in f:
+                line_number += 1
+                if line_number % 2 == 0 and line_number % 4 != 0:
+                    count += len(line.rstrip())
+
+        return count
