@@ -4,7 +4,7 @@ from src.fastq import Fastq
 
 def main():
     parser = argparse.ArgumentParser(description='Sanger Bioinformatics Toolkit')
-    parser.add_argument('-f', '--fastq', help='path to fastq file', required=True, type=str)
+    parser.add_argument('-f', '--fastq', help='path to fastq(.gz) file', required=True, type=str)
 
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument('--seq_count', help='prints the sequence count', action='store_true')
